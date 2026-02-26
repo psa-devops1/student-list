@@ -9,6 +9,7 @@ RUN apt-get update -y && \
         libssl-dev \
         gcc \
         build-essential && \
+    rm -rf /var/lib/apt/lists/*
 RUN pip3 install -r /requirements.txt
 VOLUME [ "/data" ]
 EXPOSE 5000
