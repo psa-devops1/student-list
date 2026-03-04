@@ -1,0 +1,33 @@
+services:
+  website:
+    container_name: website
+    image: php:apache
+    depends_on:
+      - api
+    ports:
+      - 8000:80
+    environment:
+      - USERNAME=toto
+      - PASSWORD=python
+    volumes:
+      - ./website:/var/www/html
+    networks:
+      - student-network
+      
+  api:
+    container_name: api
+    image: api:v1.0
+    volumes:
+      - ./simple_api/student_age.json:/data/student_age.json
+    networks:
+      - student-network
+
+networks:
+  student-network:
+    driver: bridge
+    name: student-network
+
+
+
+
+
