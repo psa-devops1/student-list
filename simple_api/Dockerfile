@@ -1,3 +1,4 @@
+# commentaire
 FROM python:3.13-slim
 LABEL maintainer="Pierre"
 COPY requirements.txt student_age.py /
